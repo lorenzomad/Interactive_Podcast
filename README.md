@@ -12,6 +12,8 @@ The software will be based on the following elements:
 - UI to interact and choose the topic
   - main menu to start an interaction
   - list with updated hot topics of the day/week (from google trends/local news articles)
+- Podcast
+  - to start a podcast interaction  
 - AI agent 
   - Text generation component (powered by Chat-GPT)
   - Text to speech component that will allow the AI agent to speak with natural voice
