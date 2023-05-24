@@ -47,5 +47,5 @@ class AiAgent:
         )
 
         reply = chat.choices[0].message.content
-        print(f"{self.name}: {reply}")
+        print(f"\n {self.name}: {reply}")
         self.messages.append({"role": "assistant", "content": reply})
