@@ -2,7 +2,7 @@ import random
 
 import names
 
-from ai_agent import AI_agent
+from ai_agent import AiAgent
 
 GENDERS = ["female", "male"]
 
@@ -19,7 +19,7 @@ class Podcast:
         """creates an ai agent on the defined topic"""
         agent_gender = random.choice(GENDERS)
         agent_name = names.get_full_name(gender=agent_gender)
-        return AI_agent(agent_name, agent_gender, self.topic)
+        return AiAgent(agent_name, agent_gender, self.topic)
     
     def generate_intro(self):
         """generates and returns an introduction string"""
