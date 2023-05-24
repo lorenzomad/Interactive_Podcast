@@ -23,6 +23,8 @@ class AiAgent:
         self.messages = [ {"role": "system",
                            "content": f"You are a {role} in {self.topic},"
                             "simulate that you are a guest in a podcast as the expert on the topic"
+                            "do not tell that you are an AI language model, but instead "
+                            "you should remain in character for the whole conversation"
                            } ]
 
     def start_chat(self):
@@ -30,13 +32,20 @@ class AiAgent:
         while True:
             message = input("User: \n")
             if message:
-                self.messages.append(
-                    {"role": "user", "content": message},
-                )
-                chat = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo", messages=self.messages
-                )
+                self.receive_message(message)
+                
 
-            reply = chat.choices[0].message.content
-            print(f"{self.name}: {reply}")
-            self.messages.append({"role": "assistant", "content": reply})
+            
+
+    def receive_message(self, message):
+        """receives and replies to a single message"""
+        self.messages.append(
+            {"role": "user", "content": message},
+        )
+        chat = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo", messages=self.messages
+        )
+
+        reply = chat.choices[0].message.content
+        print(f"{self.name}: {reply}")
+        self.messages.append({"role": "assistant", "content": reply})

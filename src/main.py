@@ -8,5 +8,5 @@ user_name = "Lorenzo Maddalena"
 todays_topic = input("What is the topic you would like to discuss today?\n")
 
 podcast = Podcast(user_name, todays_topic)
-print(podcast.generate_intro())
+podcast.introduce_agent()
 podcast.start_conversation()

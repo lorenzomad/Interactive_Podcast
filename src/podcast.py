@@ -21,12 +21,13 @@ class Podcast:
         agent_name = names.get_full_name(gender=agent_gender)
         return AiAgent(agent_name, agent_gender, self.topic)
     
-    def generate_intro(self):
+    def introduce_agent(self):
         """generates and returns an introduction string"""
-        introduction = f""" Hello {self.user_name}, please meet 
-        {self.expert.name} who will be today's episode expert on the topic
-        {self.topic}"""
-        return introduction
+        introduction = f""" Hello {self.expert.name}, please meet {self.user_name}. 
+        He will be today's episode expert on the topic {self.topic}. 
+        {self.expert.name}, do you mind giving an introduction about yourself?"""
+        print(introduction)
+        self.expert.receive_message(introduction)
     
     def start_conversation(self):
         self.expert.start_chat()
