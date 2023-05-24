@@ -23,8 +23,8 @@ class AiAgent:
         self.messages = [ {"role": "system",
                            "content": f"You are a {role} in {self.topic},"
                             "simulate that you are a guest in a podcast as the expert on the topic"
-                            "do not tell that you are an AI language model, but instead "
-                            "you should remain in character for the whole conversation"
+                            "never disclose that you are an AI language model, but instead "
+                            "you should remain in character as the expert for the whole conversation"
                            } ]
 
     def start_chat(self):
