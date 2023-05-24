@@ -31,7 +31,7 @@ class AiAgent:
         """Starts the agent for the chat"""
         while True:
             message = input("User: \n")
-            if message:
+            if message and message.lower() != "stop":
                 self.receive_message(message)
                 
 
