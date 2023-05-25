@@ -1,6 +1,8 @@
 """before you start make sure that the openai api key is set to the 
 environment variable OPENAI_API"""
 
+import time
+
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
@@ -11,7 +13,7 @@ from ui import UI
 
 
 #user_name = input("What is your name?\n")
-USER_NAME = "Lorenzo Maddalena"
+USER_NAME = "Lorenzo"
 
 # create the podcast object
 podcast = Podcast(USER_NAME)
@@ -24,50 +26,45 @@ class MessageForm(FlaskForm):
     message = StringField('message', validators=[DataRequired()])
     submit = SubmitField("send")
 
+class TopicForm(FlaskForm):
+    topic = StringField('topic', validators=[DataRequired()])
+    submit = SubmitField("Start Conversation")
 
-# def start_podcast():
-#     """starts the selection of the topic and the podcast"""
-#     #choose topic 
-#     # ui = UI()
-#     # todays_topic = ui.topic_selection()
-#     # todays_topic = "ai"
-#     #start podcast episode
-    
-#     return podcast
-    
 
-@app.route("/")
+@app.route("/", methods= ["GET", "POST"])
 def home_page():
     """home page"""
-    return render_template("index.html")
+    global podcast
+    topic_form = TopicForm()
+
+    if topic_form.validate_on_submit():
+        podcast.set_topic(topic_form.topic.data)
+        print
+        podcast.generate_ai_agent()
+        podcast.introduce_agent()
+        time.sleep(2)
+        podcast_page()
+
+
+    return render_template("index.html", form=topic_form)
 
 @app.route("/podcast", methods=["GET", "POST"])
 def podcast_page():
     """podcast page"""
-
     global podcast
+    message_form = MessageForm()
 
-    if request.method == "POST":
-        podcast.expert.receive_message("ciao")
+    if message_form.validate_on_submit():
+        message = message_form.message.data
+        podcast.expert.receive_message(message)
 
-
-    podcast.introduce_agent()
-    form = MessageForm()
-    
     return render_template(
         "podcast.html", 
-        messages= podcast.expert.messages,
-        form=form
+        messages=podcast.expert.messages if podcast.expert is not None else [],
+        form=message_form
         )
-    
+
 
 if __name__== "__main__":
 
-    podcast = Podcast(USER_NAME)
-    podcast.set_topic("ai")
-    podcast.generate_ai_agent()
     app.run(debug =True)
-    
-    
-
-    

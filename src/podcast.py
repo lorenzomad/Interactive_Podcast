@@ -22,7 +22,7 @@ class Podcast:
 
     def generate_ai_agent(self):
         """creates an ai agent on the defined topic"""
-        if self.topic != None:
+        if self.topic is not None:
             agent_gender = random.choice(GENDERS)
             agent_name = names.get_full_name(gender=agent_gender)
             self.expert = AiAgent(agent_name, agent_gender, self.topic)

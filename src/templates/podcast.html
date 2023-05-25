@@ -8,13 +8,14 @@
     <title>Podcast</title>
 </head>
 <body>
-    
-    {% for message in messages : %}
-    <h1>Message: </h1>
-    <p>{{message}}</p>
+    {%if messages != []: %}
 
-    {% endfor%}
+        {% for message in messages : %}
+        <h3>{{message["role"]}}: </h1>
+        <p>{{message["content"]}}</p>
 
+        {% endfor%}
+    {%endif%}
 
     
     <form method="POST" action="{{url_for('podcast_page')}}">
