@@ -10,17 +10,25 @@ class Podcast:
     """class to manage the interaction between the user and the AI agent
     the class will output the text to the user"""
 
-    def __init__(self, user_name, topic) -> None:
+    def __init__(self, user_name) -> None:
         self.user_name = user_name
+        self.topic = None
+        self.expert = None
+        
+    
+    def set_topic(self, topic):
+        """sets the topic of the podcast"""
         self.topic = topic
-        self.expert = self.generate_ai_agent()
 
     def generate_ai_agent(self):
         """creates an ai agent on the defined topic"""
-        agent_gender = random.choice(GENDERS)
-        agent_name = names.get_full_name(gender=agent_gender)
-        return AiAgent(agent_name, agent_gender, self.topic)
-    
+        if self.topic != None:
+            agent_gender = random.choice(GENDERS)
+            agent_name = names.get_full_name(gender=agent_gender)
+            self.expert = AiAgent(agent_name, agent_gender, self.topic)
+        else:
+            print("You need to select a topic first")
+
     def introduce_agent(self):
         """generates and returns an introduction string"""
         introduction = f""" Hello {self.expert.name}, please meet {self.user_name}. 
