@@ -23,11 +23,13 @@ app = Flask(__name__)
 app.secret_key = "secret"
 
 class MessageForm(FlaskForm):
-    message = StringField('message', validators=[DataRequired()])
-    submit = SubmitField("send")
+    """form for the sending of messages to the ai agent"""
+    message = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField("Send")
 
 class TopicForm(FlaskForm):
-    topic = StringField('topic', validators=[DataRequired()])
+    """form for selecting the topic of the podcast"""
+    topic = StringField('Topic', validators=[DataRequired()])
     submit = SubmitField("Start Conversation")
 
 
@@ -35,7 +37,6 @@ class TopicForm(FlaskForm):
 def home_page():
     """home page"""
     topic_form = TopicForm()
-    print(topic_form.topic.data)
 
     if topic_form.validate_on_submit():
         podcast.set_topic(topic_form.topic.data)
@@ -56,7 +57,7 @@ def podcast_page():
 
     return render_template(
         "podcast.html", 
-        messages=podcast.expert.messages if podcast.expert is not None else [],
+        messages=podcast.expert.messages[1:],
         form=message_form
         )
 
