@@ -3,7 +3,7 @@ environment variable OPENAI_API"""
 
 import time
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
@@ -34,24 +34,20 @@ class TopicForm(FlaskForm):
 @app.route("/", methods= ["GET", "POST"])
 def home_page():
     """home page"""
-    global podcast
     topic_form = TopicForm()
+    print(topic_form.topic.data)
 
     if topic_form.validate_on_submit():
         podcast.set_topic(topic_form.topic.data)
-        print
         podcast.generate_ai_agent()
         podcast.introduce_agent()
-        time.sleep(2)
-        podcast_page()
-
 
     return render_template("index.html", form=topic_form)
+
 
 @app.route("/podcast", methods=["GET", "POST"])
 def podcast_page():
     """podcast page"""
-    global podcast
     message_form = MessageForm()
 
     if message_form.validate_on_submit():
