@@ -1,3 +1,5 @@
 openai
 names
 pytrends
+flask
+Flask-WTF
