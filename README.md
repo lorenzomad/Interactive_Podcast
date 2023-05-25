@@ -16,7 +16,7 @@ The software will be based on the following elements:
   - to start a podcast interaction  
 - AI agent 
   - Text generation component (powered by Chat-GPT)
-  - Text to speech component that will allow the AI agent to speak with natural voice
+  - Text to speech component that will allow the AI agent to speak with natural voice (with bark tts)
 - User interpretation 
   - voice to text element to allow the interpretation of the messages to the AI agent
 
