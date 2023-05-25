@@ -24,12 +24,12 @@ app.secret_key = "secret"
 
 class MessageForm(FlaskForm):
     """form for the sending of messages to the ai agent"""
-    message = StringField('message', validators=[DataRequired()])
-    submit = SubmitField("send")
+    message = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField("Send")
 
 class TopicForm(FlaskForm):
     """form for selecting the topic of the podcast"""
-    topic = StringField('topic', validators=[DataRequired()])
+    topic = StringField('Topic', validators=[DataRequired()])
     submit = SubmitField("Start Conversation")
 
 
@@ -57,7 +57,7 @@ def podcast_page():
 
     return render_template(
         "podcast.html", 
-        messages=podcast.expert.messages,
+        messages=podcast.expert.messages[1:],
         form=message_form
         )
 
