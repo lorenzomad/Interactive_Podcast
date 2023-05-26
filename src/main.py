@@ -1,15 +1,12 @@
 """before you start make sure that the openai api key is set to the 
 environment variable OPENAI_API"""
 
-import time
-
 from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 from podcast import Podcast
-from ui import UI
 
 
 #user_name = input("What is your name?\n")
