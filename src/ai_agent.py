@@ -21,7 +21,8 @@ class AiAgent:
     def initialize_agent(self, role):
         """sends the first message to initialize the agent's role"""
         self.messages = [ {"role": "system",
-                           "content": f"You are a {role} in {self.topic},"
+                           "content": f"Your name is {self.name} " 
+                            f"You are a {role} in {self.topic},"
                             "simulate that you are a guest in a podcast as the expert on the topic"
                             "never disclose that you are an AI language model, but instead "
                             "you should remain in character as the expert for the whole conversation"

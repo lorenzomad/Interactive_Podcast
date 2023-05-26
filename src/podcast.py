@@ -32,7 +32,7 @@ class Podcast:
     def introduce_agent(self):
         """generates and returns an introduction string"""
         introduction = f""" Hello {self.expert.name}, please meet {self.user_name}. 
-        He will be today's episode expert on the topic {self.topic}. 
+        {self.expert.name} will be today's episode expert on the topic {self.topic}. 
         {self.expert.name}, do you mind giving an introduction about yourself?"""
         print(introduction)
         self.expert.receive_message(introduction)
