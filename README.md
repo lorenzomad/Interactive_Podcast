@@ -23,3 +23,6 @@ The software will be based on the following elements:
 ## MVP objective
 
 The MVP objective for the application is to create a text based version of the interactive podcast to run in Python
+
+
+[![Python application](https://github.com/lorenzomad/Interactive_Podcast/actions/workflows/python-app.yml/badge.svg)](https://github.com/lorenzomad/Interactive_Podcast/actions/workflows/python-app.yml)
