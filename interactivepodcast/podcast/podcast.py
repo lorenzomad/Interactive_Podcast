@@ -2,7 +2,7 @@ import random
 
 import names
 
-from ai_agent import AiAgent
+from agent.ai_agent import AiAgent
 
 GENDERS = ["female", "male"]
 
