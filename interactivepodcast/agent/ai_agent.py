@@ -5,8 +5,6 @@ import openai
 
 OPENAI_KEY = os.environ.get("OPENAI_API")
 
-
-
 class AiAgent:
     """class to provide the AI agent to the user"""
 
@@ -20,13 +18,14 @@ class AiAgent:
 
     def initialize_agent(self, role):
         """sends the first message to initialize the agent's role"""
-        self.messages = [ {"role": "system",
-                           "content": f"Your name is {self.name} " 
-                            f"You are a {role} in {self.topic},"
-                            "simulate that you are a guest in a podcast as the expert on the topic"
-                            "never disclose that you are an AI language model, but instead "
-                            "you should remain in character as the expert for the whole conversation"
-                           } ]
+        self.messages = [ {
+            "role": "system",
+            "content": f"Your name is {self.name} " 
+            f"You are a {role} in {self.topic},"
+            "simulate that you are a guest in a podcast as the expert on the topic"
+            "never disclose that you are an AI language model, but instead "
+            "you should remain in character as the expert for the whole conversation"
+            } ]
 
     def start_chat(self):
         """Starts the agent for the chat"""
@@ -34,9 +33,6 @@ class AiAgent:
             message = input("User: \n")
             if message and message.lower() != "stop":
                 self.receive_message(message)
-                
-
-            
 
     def receive_message(self, message):
         """receives and replies to a single message"""
@@ -48,5 +44,4 @@ class AiAgent:
         )
 
         reply = chat.choices[0].message.content
-        print(f"\n {self.name}: {reply}")
         self.messages.append({"role": "assistant", "content": reply})

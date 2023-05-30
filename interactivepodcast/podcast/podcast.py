@@ -1,5 +1,6 @@
-import random
+"""Module to handle the Podcast object"""
 
+import random
 import names
 
 from agent.ai_agent import AiAgent
@@ -14,8 +15,8 @@ class Podcast:
         self.user_name = user_name
         self.topic = None
         self.expert = None
-        
-    
+
+
     def set_topic(self, topic):
         """sets the topic of the podcast"""
         self.topic = topic
@@ -36,7 +37,6 @@ class Podcast:
         {self.expert.name}, do you mind giving an introduction about yourself?"""
         print(introduction)
         self.expert.receive_message(introduction)
-    
+
     def start_conversation(self):
         self.expert.start_chat()
-
