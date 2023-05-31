@@ -4,3 +4,4 @@ pytrends
 flask
 Flask-WTF
 pytest
+gTTS
