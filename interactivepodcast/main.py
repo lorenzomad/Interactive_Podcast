@@ -16,11 +16,12 @@ USER_NAME = "Lorenzo"
 # create the podcast object
 podcast = Podcast(USER_NAME)
 
-
-tts = GTTS()
-tts.generate_audio("hello I am adam")
-tts.save_audio()
-tts.play_audio()
+def test_audio():
+    """to test the audio in development"""
+    tts = GTTS()
+    tts.generate_audio("hello I am adam")
+    tts.save_audio()
+    tts.play_audio()
 
 #instantiate the flask app
 app = Flask(__name__)
