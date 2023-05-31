@@ -7,7 +7,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
 from podcast.podcast import Podcast
-from agent.tts import TTS
+from agent.tts import GTTS
 
 
 #user_name = input("What is your name?\n")
@@ -16,8 +16,9 @@ USER_NAME = "Lorenzo"
 # create the podcast object
 podcast = Podcast(USER_NAME)
 
-tts = TTS()
+tts = GTTS()
 tts.generate_audio("hello I am adam")
+tts.save_audio()
 tts.play_audio()
 
 #instantiate the flask app
