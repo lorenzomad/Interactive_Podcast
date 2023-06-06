@@ -44,6 +44,6 @@ The software is based on the following elements:
   - voice to text element to allow the interpretation of the messages to the AI agent (TBD)
 
 
-
+## Continuous integration
 
 [![Python application](https://github.com/lorenzomad/Interactive_Podcast/actions/workflows/python-app.yml/badge.svg)](https://github.com/lorenzomad/Interactive_Podcast/actions/workflows/python-app.yml)
