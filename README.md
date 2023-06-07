@@ -46,11 +46,11 @@ The software is based on the following elements:
 ## Screenshots
 
 - main page:
- ![index](https://github.com/lorenzomad/Interactive_Podcast/assets/106270843/14f0cf37-a47e-4034-95c2-ec699b1788cc)
+![index](https://github.com/lorenzomad/Interactive_Podcast/assets/106270843/32f47474-c539-422b-8d44-0903bfe6db09)
 
 
  - podcast
- ![podcast](https://github.com/lorenzomad/Interactive_Podcast/assets/106270843/ca38795c-c400-4d85-9080-9d49bb881d33)
+ ![podcast](https://github.com/lorenzomad/Interactive_Podcast/assets/106270843/91527eea-76f1-4234-88fd-80bd827b9fa7)
 
 
 
