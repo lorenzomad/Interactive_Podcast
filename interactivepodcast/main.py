@@ -11,7 +11,7 @@ from agent.tts import GTTS
 
 
 #user_name = input("What is your name?\n")
-USER_NAME = "Lorenzo"
+USER_NAME = "User"
 
 # create the podcast object
 podcast = Podcast(USER_NAME)
