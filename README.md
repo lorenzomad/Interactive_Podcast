@@ -43,6 +43,15 @@ The software is based on the following elements:
 - User interpretation 
   - voice to text element to allow the interpretation of the messages to the AI agent (TBD)
 
+## Screenshots
+
+- main page:
+ screenshots/index.png
+
+ - podcast
+  screenshots/podcast.png
+
+
 
 ## Continuous integration
 
